@@ -4,7 +4,7 @@ defmodule RelationshipTest.Relations.RelationshipTest do
   alias RelationshipTest.Relations
   alias RelationshipTest.Relations.Message
 
-  test "build user and message and retrieve with get_by_id" do
+  test "retrieve message-to-user relation with get_by_id" do
     user = build_user()
     content = Faker.Lorem.words(10) |> Enum.join(" ")
 
@@ -23,7 +23,7 @@ defmodule RelationshipTest.Relations.RelationshipTest do
     assert msg.user.name == user.name
   end
 
-  test "build user and message and retrieve with read_all_with_user_info" do
+  test "retrieve message-to-user relation with read_all_with_user_info" do
     user = build_user()
     content = Faker.Lorem.words(10) |> Enum.join(" ")
 
@@ -43,7 +43,7 @@ defmodule RelationshipTest.Relations.RelationshipTest do
     assert msg.user.name == user.name
   end
 
-  test "build user and message and retrieve with read_all_with_user_info!" do
+  test "retrieve message-to-user relation with read_all_with_user_info!" do
     user = build_user()
     content = Faker.Lorem.words(10) |> Enum.join(" ")
 
@@ -64,7 +64,7 @@ defmodule RelationshipTest.Relations.RelationshipTest do
     assert msg.user.name == user.name
   end
 
-  test "build user and message and retrieve with read_all" do
+  test "retrieve message-to-user relation with read_all" do
     user = build_user()
     content = Faker.Lorem.words(10) |> Enum.join(" ")
 
