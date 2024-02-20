@@ -9,7 +9,8 @@ import Config
 
 config :relationship_test,
   ecto_repos: [RelationshipTest.Repo],
-  generators: [timestamp_type: :utc_datetime]
+  generators: [timestamp_type: :utc_datetime],
+  ash_apis: [RelationshipTest.Relations]
 
 # Configures the endpoint
 config :relationship_test, RelationshipTestWeb.Endpoint,

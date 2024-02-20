@@ -25,12 +25,12 @@ defmodule RelationshipTest.Relations.Message do
 
       get? true
       filter expr(id == ^arg(:id))
-      prepare build(load: [:user])
+      # prepare build(load: [:user])
     end
 
     read :read do
       primary? true
-      prepare build(load: [:user])
+      # prepare build(load: [:user])
     end
   end
 

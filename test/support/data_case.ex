@@ -32,6 +32,25 @@ defmodule RelationshipTest.DataCase do
     :ok
   end
 
+  defp email, do: Faker.Internet.email()
+
+  defp name, do: Faker.Internet.user_name()
+
+  def build_user(attrs \\ []) do
+    attrs =
+      attrs
+      |> Map.new()
+      |> Map.put_new(:email, email())
+      |> Map.put_new(:name, name())
+
+    user =
+      RelationshipTest.Relations.User
+      |> Ash.Changeset.for_create(:create, attrs)
+      |> RelationshipTest.Relations.create!()
+
+    user
+  end
+
   @doc """
   Sets up the sandbox based on the test tags.
   """

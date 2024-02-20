@@ -62,7 +62,8 @@ defmodule RelationshipTest.MixProject do
       {:ash_postgres, "~> 1.4"},
       {:ash_phoenix, "~> 1.3"},
       {:ash_authentication, "~> 3.12"},
-      {:ash_authentication_phoenix, "~> 1.9"}
+      {:ash_authentication_phoenix, "~> 1.9"},
+      {:faker, "~> 0.17", only: :test}
     ]
   end
 
