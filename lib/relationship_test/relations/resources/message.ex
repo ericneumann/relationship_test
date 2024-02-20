@@ -25,12 +25,23 @@ defmodule RelationshipTest.Relations.Message do
 
       get? true
       filter expr(id == ^arg(:id))
-      # prepare build(load: [:user])
+      prepare build(load: [:user])
     end
 
     read :read do
       primary? true
       # prepare build(load: [:user])
+    end
+
+    def read_all_with_user_info do
+      RelationshipTest.Relations.Message
+      |> Ash.Query.for_read(:read)
+      |> Ash.Query.load([:user])
+      |> RelationshipTest.Relations.read()
+    end
+
+    read :read_all do
+      prepare build(load: [:user])
     end
   end
 
@@ -40,8 +51,6 @@ defmodule RelationshipTest.Relations.Message do
     attribute :content, :string do
       allow_nil? false
     end
-
-    # attribute :user_id, :uuid, allow_nil?: false
   end
 
   relationships do
